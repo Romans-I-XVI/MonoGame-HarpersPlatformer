@@ -8,14 +8,14 @@ namespace HarpersPlatformer.Entities
 {
     public class Player : Entity
     {
-        public const float MoveSpeed = 10;
+        public const float MoveSpeed = 15;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
 
         public Player()
         {
-            Position = new Vector2(200, 700);
+            Position = new Vector2(150, 700);
 
             // Add texture
             var texture = Engine.Game.Content.Load<Texture2D>("textures/player");
@@ -31,6 +31,8 @@ namespace HarpersPlatformer.Entities
             _buttonMoveLeft.AddKey(Keys.A);
             _buttonMoveLeft.AddKey(Keys.Left);
             _buttonMoveLeft.AddButton(Buttons.DPadLeft);
+
+            AddColliderCircle("main", 150);
         }
 
         public override void onUpdate(float deltaTime)
@@ -45,6 +47,12 @@ namespace HarpersPlatformer.Entities
             {
                 Position.X -= MoveSpeed * 60 * deltaTime;
             }
+        }
+
+        public override void onCollision(Collider collider, Collider otherCollider, Entity otherInstance)
+        {
+            base.onCollision(collider, otherCollider, otherInstance);
+            IsExpired = true;
         }
     }
 }
