@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarpersPlatformer", "HarpersPlatformer\HarpersPlatformer.csproj", "{A62D1878-DD63-4DC3-9F1A-A745728CD4BC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MonoEngine", "monoEngine\MonoEngine\MonoEngine.shproj", "{21B5F966-179F-4871-A25A-FE80FAE9AFCF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HarpersPlatformerShared", "HarpersPlatformerShared\HarpersPlatformerShared.shproj", "{55487247-097D-44A1-A72C-16EB4A1E2ACE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A62D1878-DD63-4DC3-9F1A-A745728CD4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62D1878-DD63-4DC3-9F1A-A745728CD4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62D1878-DD63-4DC3-9F1A-A745728CD4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62D1878-DD63-4DC3-9F1A-A745728CD4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
