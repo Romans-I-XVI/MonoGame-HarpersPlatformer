@@ -17,6 +17,7 @@ namespace MonoEngine
         protected override void LoadContent()
         {
             base.LoadContent();
+            Engine.SpawnInstance<Debugger>();
             Engine.ChangeRoom<RoomMain>();
         }
     }

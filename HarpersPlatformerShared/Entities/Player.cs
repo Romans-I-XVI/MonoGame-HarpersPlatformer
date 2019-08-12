@@ -6,9 +6,11 @@ using MonoEngine;
 
 namespace HarpersPlatformer.Entities
 {
-    public class Player : Entity
+    public class Player : LevelCanvasEntity
     {
         public const float MoveSpeed = 15;
+        public const int PlayerStartX = 150;
+        public const int PlayerStartY = 700;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
@@ -32,7 +34,7 @@ namespace HarpersPlatformer.Entities
             _buttonMoveLeft.AddKey(Keys.Left);
             _buttonMoveLeft.AddButton(Buttons.DPadLeft);
 
-            AddColliderCircle("main", 150);
+            AddColliderRectangle("main", 0, 0, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
 
         public override void onUpdate(float deltaTime)
@@ -46,6 +48,15 @@ namespace HarpersPlatformer.Entities
             else if (_buttonMoveLeft.IsHeld())
             {
                 Position.X -= MoveSpeed * 60 * deltaTime;
+            }
+
+            if (Position.X < PlayerStartX)
+            {
+                Position.X = PlayerStartX;
+            }
+            else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - PlayerStartX)
+            {
+                Position.X = RenderTarget.OthersRenderTarget.Width - PlayerStartX;
             }
         }
 

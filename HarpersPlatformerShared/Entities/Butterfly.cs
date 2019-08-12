@@ -4,7 +4,7 @@ using MonoEngine;
 
 namespace HarpersPlatformer.Entities
 {
-    public class Butterfly : Entity
+    public class Butterfly : LevelCanvasEntity
     {
         private Oscillator _oscillatorX;
         private Oscillator _oscillatorY;
@@ -19,7 +19,7 @@ namespace HarpersPlatformer.Entities
             _oscillatorY = new Oscillator(300, 600, 500, Tween.SinusoidalTween);
             Position = new Vector2(500, 300);
 
-            AddColliderCircle("main", 100);
+            AddColliderRectangle("main", 0, 0, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
 
         public override void onUpdate(float deltaTime)
