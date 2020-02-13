@@ -11,10 +11,6 @@ namespace HarpersPlatformer.Entities
         public const float MoveSpeed = 15;
         private const int StartX = 350;
         private const int StartY = 10000 - 42;
-        public const int MinY = 250;
-        public const int MaxY = 1080 - 42;
-        public const int MinX = 1920 / 3;
-        public const int MaxX = 1920 - 1920 / 3;
         private const int EdgeBuffer = 100;
         private const float JumpSpeed = -30f;
         private const float Gravity = 2.5f;
@@ -46,6 +42,7 @@ namespace HarpersPlatformer.Entities
 
             _buttonJump = new VirtualButton();
             _buttonJump.AddKey(Keys.Space);
+            _buttonJump.AddButton(Buttons.A);
 
             AddColliderRectangle("main", -texture.Width / 2, -texture.Height, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
