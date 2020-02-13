@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using HarpersPlatformer.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoEngine;
 
 namespace HarpersPlatformer.Rooms
@@ -10,11 +11,12 @@ namespace HarpersPlatformer.Rooms
     {
         public override void onSwitchTo(Room previousRoom, Dictionary<string, object> args)
         {
-            var levelCanvas = new LevelCanvas(5000, 1080);
+            var levelCanvas = new LevelCanvas(5000, 10000);
             Engine.SpawnInstance(levelCanvas);
             Engine.SpawnInstance<Player>();
             Engine.SpawnInstance<Butterfly>();
             Engine.SpawnInstance<RespawnControl>();
+            Engine.SpawnInstance<ControlReset>();
 
             for (int i = 0; i < 5; i++)
             {
@@ -37,13 +39,22 @@ namespace HarpersPlatformer.Rooms
             };
             var tree = new BackgroundImage(treeSprite)
             {
-                Position = new Vector2(800, 550)
+                Position = new Vector2(800, 550 + 8920)
             };
             Engine.SpawnInstance(tree);
         }
 
         public override void onSwitchAway(Room nextRoom)
         {
+        }
+
+        private class ControlReset : Entity
+        {
+            public override void onKeyDown(KeyboardEventArgs e) {
+                base.onKeyDown(e);
+                if (e.Key == Keys.R)
+                    Engine.ResetRoom();
+            }
         }
     }
 }

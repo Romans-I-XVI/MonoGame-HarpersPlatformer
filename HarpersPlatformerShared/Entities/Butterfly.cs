@@ -16,8 +16,8 @@ namespace HarpersPlatformer.Entities
             AddSprite("main", sprite);
 
             _oscillatorX = new Oscillator(500, 1500, 2000, Tween.SinusoidalTween);
-            _oscillatorY = new Oscillator(400, 700, 500, Tween.SinusoidalTween);
-            Position = new Vector2(500, 400);
+            _oscillatorY = new Oscillator(400 + 8920, 700 + 8920, 500, Tween.SinusoidalTween);
+            Position = new Vector2(500, 400 + 8920);
 
             AddColliderRectangle("main", 0, 0, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
