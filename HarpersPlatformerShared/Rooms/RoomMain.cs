@@ -37,7 +37,7 @@ namespace HarpersPlatformer.Rooms
             };
             var tree = new BackgroundImage(treeSprite)
             {
-                Position = new Vector2(800, 404)
+                Position = new Vector2(800, 550)
             };
             Engine.SpawnInstance(tree);
         }

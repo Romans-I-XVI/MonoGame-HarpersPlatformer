@@ -10,14 +10,14 @@ namespace HarpersPlatformer.Entities
     {
         public const float MoveSpeed = 15;
         public const int PlayerStartX = 150;
-        public const int PlayerStartY = 700;
+        public const int PlayerStartY = 800;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
 
         public Player()
         {
-            Position = new Vector2(150, 700);
+            Position = new Vector2(Player.PlayerStartX, Player.PlayerStartY);
 
             // Add texture
             var texture = Engine.Game.Content.Load<Texture2D>("textures/player");
