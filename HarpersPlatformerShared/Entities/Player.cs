@@ -11,14 +11,18 @@ namespace HarpersPlatformer.Entities
         public const float MoveSpeed = 15;
         private const int StartX = 350;
         private const int StartY = 10000 - 42;
-        public const int MinY = 400;
+        public const int MinY = 250;
         public const int MaxY = 1080 - 42;
-        public const int MinX = Player.StartX;
-        public const int MaxX = 1920 / 2;
+        public const int MinX = 1920 / 3;
+        public const int MaxX = 1920 - 1920 / 3;
         private const int EdgeBuffer = 100;
+        private const float JumpSpeed = -30f;
+        private const float Gravity = 2.5f;
+        private const float MaxFallSpeed = 15f;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
+        private VirtualButton _buttonJump;
 
         public Player() {
             Position = new Vector2(Player.StartX, Player.StartY);
@@ -39,6 +43,9 @@ namespace HarpersPlatformer.Entities
             _buttonMoveLeft.AddKey(Keys.A);
             _buttonMoveLeft.AddKey(Keys.Left);
             _buttonMoveLeft.AddButton(Buttons.DPadLeft);
+
+            _buttonJump = new VirtualButton();
+            _buttonJump.AddKey(Keys.Space);
 
             AddColliderRectangle("main", -texture.Width / 2, -texture.Height, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
@@ -63,6 +70,20 @@ namespace HarpersPlatformer.Entities
             else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - Player.EdgeBuffer)
             {
                 Position.X = RenderTarget.OthersRenderTarget.Width - Player.EdgeBuffer;
+            }
+
+            // Jump if pressed
+            if (this._buttonJump.IsPressed()) {
+                this.Speed.Y = Player.JumpSpeed;
+            }
+
+            // Update Y speed based on gravity
+            this.Speed.Y += Player.Gravity * 60 * deltaTime;
+            if (this.Speed.Y > Player.MaxFallSpeed)
+                this.Speed.Y = Player.MaxFallSpeed;
+            if (this.Position.Y >= Player.StartY && this.Speed.Y > 0) {
+                this.Position.Y = Player.StartY;
+                this.Speed.Y = 0;
             }
         }
 
