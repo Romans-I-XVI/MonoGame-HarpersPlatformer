@@ -15,6 +15,7 @@ namespace HarpersPlatformer.Entities
         public const int MaxY = 1080 - 42;
         public const int MinX = Player.StartX;
         public const int MaxX = 1920 / 2;
+        private const int EdgeBuffer = 100;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
@@ -55,13 +56,13 @@ namespace HarpersPlatformer.Entities
                 Position.X -= MoveSpeed * 60 * deltaTime;
             }
 
-            if (Position.X < Player.StartX)
+            if (Position.X < Player.EdgeBuffer)
             {
-                Position.X = Player.StartX;
+                Position.X = Player.EdgeBuffer;
             }
-            else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - Player.StartX)
+            else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - Player.EdgeBuffer)
             {
-                Position.X = RenderTarget.OthersRenderTarget.Width - Player.StartX;
+                Position.X = RenderTarget.OthersRenderTarget.Width - Player.EdgeBuffer;
             }
         }
 
