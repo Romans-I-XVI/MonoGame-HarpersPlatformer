@@ -9,19 +9,22 @@ namespace HarpersPlatformer.Entities
     public class Player : LevelCanvasEntity
     {
         public const float MoveSpeed = 15;
-        public const int PlayerStartX = 150;
-        public const int PlayerStartY = 800;
+        private const int StartX = 350;
+        public const int StartY = 1080 - 42;
+        public const int MinX = Player.StartX;
+        public const int MaxX = 1920 / 2;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
 
-        public Player()
-        {
-            Position = new Vector2(Player.PlayerStartX, Player.PlayerStartY);
+        public Player() {
+            Position = new Vector2(Player.StartX, Player.StartY);
 
             // Add texture
             var texture = Engine.Game.Content.Load<Texture2D>("textures/player");
-            var sprite = new Sprite(new Region(texture));
+            var sprite = new Sprite(new Region(texture) {
+                Origin = new Vector2(texture.Width / 2f, texture.Height)
+            });
             AddSprite("main", sprite);
 
             _buttonMoveRight = new VirtualButton();
@@ -34,7 +37,7 @@ namespace HarpersPlatformer.Entities
             _buttonMoveLeft.AddKey(Keys.Left);
             _buttonMoveLeft.AddButton(Buttons.DPadLeft);
 
-            AddColliderRectangle("main", 0, 0, sprite.Region.GetWidth(), sprite.Region.GetHeight());
+            AddColliderRectangle("main", -texture.Width / 2, -texture.Height, sprite.Region.GetWidth(), sprite.Region.GetHeight());
         }
 
         public override void onUpdate(float deltaTime)
@@ -50,13 +53,13 @@ namespace HarpersPlatformer.Entities
                 Position.X -= MoveSpeed * 60 * deltaTime;
             }
 
-            if (Position.X < PlayerStartX)
+            if (Position.X < Player.StartX)
             {
-                Position.X = PlayerStartX;
+                Position.X = Player.StartX;
             }
-            else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - PlayerStartX)
+            else if (RenderTarget != null && Position.X > RenderTarget.OthersRenderTarget.Width - Player.StartX)
             {
-                Position.X = RenderTarget.OthersRenderTarget.Width - PlayerStartX;
+                Position.X = RenderTarget.OthersRenderTarget.Width - Player.StartX;
             }
         }
 

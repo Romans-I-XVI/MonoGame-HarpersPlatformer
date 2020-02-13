@@ -15,8 +15,12 @@ namespace HarpersPlatformer.Entities
             var player = Engine.GetFirstInstanceByType<Player>();
             if (player != null)
             {
-                Position.X = -player.Position.X + Player.PlayerStartX;
-                Position.Y = -player.Position.Y + Player.PlayerStartY;
+                if (-player.Position.X + Player.MaxX < this.Position.X)
+                    Position.X = -player.Position.X + Player.MaxX;
+                else if (-player.Position.X + Player.MinX > this.Position.X)
+                    Position.X =-player.Position.X + Player.MinX;
+
+                Position.Y = -player.Position.Y + Player.StartY;
             }
         }
     }
