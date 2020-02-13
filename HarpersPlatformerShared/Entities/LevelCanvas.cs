@@ -18,9 +18,17 @@ namespace HarpersPlatformer.Entities
                 if (-player.Position.X + Player.MaxX < this.Position.X)
                     Position.X = -player.Position.X + Player.MaxX;
                 else if (-player.Position.X + Player.MinX > this.Position.X)
-                    Position.X =-player.Position.X + Player.MinX;
+                    Position.X = -player.Position.X + Player.MinX;
 
-                Position.Y = -player.Position.Y + Player.StartY;
+                if (-player.Position.Y + Player.MaxY < this.Position.Y) {
+                    Position.Y = -player.Position.Y + Player.MaxY;
+                    if (this.Position.Y < 0)
+                        this.Position.Y = 0;
+                }
+                else if (-player.Position.Y + Player.MinY > this.Position.Y) {
+                    Position.Y = -player.Position.Y + Player.MinY;
+                }
+
             }
         }
     }

@@ -10,7 +10,9 @@ namespace HarpersPlatformer.Entities
     {
         public const float MoveSpeed = 15;
         private const int StartX = 350;
-        public const int StartY = 1080 - 42;
+        private const int StartY = 1080 - 42;
+        public const int MinY = 400;
+        public const int MaxY = Player.StartY;
         public const int MinX = Player.StartX;
         public const int MaxX = 1920 / 2;
 
