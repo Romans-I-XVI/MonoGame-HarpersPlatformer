@@ -15,6 +15,7 @@ namespace HarpersPlatformer.Entities
         private const float JumpSpeed = -30f;
         private const float Gravity = 2.5f;
         private const float MaxFallSpeed = 15f;
+        public bool Invincible = false;
 
         private VirtualButton _buttonMoveRight;
         private VirtualButton _buttonMoveLeft;
@@ -87,7 +88,9 @@ namespace HarpersPlatformer.Entities
         public override void onCollision(Collider collider, Collider otherCollider, Entity otherInstance)
         {
             base.onCollision(collider, otherCollider, otherInstance);
-            IsExpired = true;
+            if (!this.Invincible) {
+                this.IsExpired = true;
+            }
         }
     }
 }
