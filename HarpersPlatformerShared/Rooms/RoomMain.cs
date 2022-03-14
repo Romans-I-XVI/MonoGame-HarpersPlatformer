@@ -11,18 +11,18 @@ namespace HarpersPlatformer.Rooms
     {
         public override void onSwitchTo(Room previousRoom, Dictionary<string, object> args)
         {
-            var levelCanvas = new LevelCanvas(5000, 10000);
+            var levelCanvas = new LevelCanvas(10000, 10000);
             Engine.SpawnInstance(levelCanvas);
             Engine.SpawnInstance<Player>();
             Engine.SpawnInstance<Butterfly>();
             Engine.SpawnInstance<RespawnControl>();
             Engine.SpawnInstance<ControlReset>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var region = new Region(Engine.Game.Content.Load<Texture2D>("textures/ground_1"));
                 var sprite = new Sprite(region);
-                if (i == 1 || i == 3)
+                if (i == 1 || i == 3 || i == 5 || i == 7 || i == 9)
                 {
                     sprite.SpriteEffects = SpriteEffects.FlipHorizontally;
                 }
