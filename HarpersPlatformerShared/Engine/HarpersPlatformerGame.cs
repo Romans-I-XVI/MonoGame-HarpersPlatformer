@@ -7,7 +7,7 @@ namespace MonoEngine
     {
         public HarpersPlatformerGame() : base(1920, 1080, 0, 0)
         {
-            BackgroundColor = Color.WhiteSmoke;
+            BackgroundColor = new Color(0x99, 0xCC, 0xFF);
             IsFixedTimeStep = false;
             Graphics.SynchronizeWithVerticalRetrace = false;
             Graphics.HardwareModeSwitch = false;
