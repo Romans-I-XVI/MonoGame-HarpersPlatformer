@@ -4,10 +4,11 @@ namespace HarpersPlatformer.Entities
 {
     public class LevelCanvas : RenderCanvas
     {
+        private const int PlayerMovementWidth = (int)(1920 * 0.1f);
         private const int PlayerMinY = 250;
         private const int PlayerMaxY = 1080 / 2 + 100;
-        private const int PlayerMinX = 1920 / 3;
-        private const int PlayerMaxX = 1920 - 1920 / 3;
+        private const int PlayerMinX = 1920 / 2 - LevelCanvas.PlayerMovementWidth / 2;
+        private const int PlayerMaxX = 1920 / 2 + LevelCanvas.PlayerMovementWidth / 2;
 
         public LevelCanvas(int width, int height) : base(width, height)
         {
