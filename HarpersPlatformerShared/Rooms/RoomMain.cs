@@ -19,11 +19,11 @@ namespace HarpersPlatformer.Rooms
             Engine.SpawnInstance<ControlReset>();
             Engine.SpawnInstance<ControlFullscreen>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 var region = new Region(Engine.Game.Content.Load<Texture2D>("textures/ground_1"));
                 var sprite = new Sprite(region);
-                if (i == 1 || i == 3 || i == 5 || i == 7 || i == 9)
+                if (i % 2 != 0)
                 {
                     sprite.SpriteEffects = SpriteEffects.FlipHorizontally;
                 }
@@ -40,7 +40,7 @@ namespace HarpersPlatformer.Rooms
             };
             var tree = new BackgroundImage(treeSprite)
             {
-                Position = new Vector2(800, 550 + 8920)
+                Position = new Vector2(800, 10000 - 544 * treeSprite.Scale.Y - 25)
             };
             Engine.SpawnInstance(tree);
         }
