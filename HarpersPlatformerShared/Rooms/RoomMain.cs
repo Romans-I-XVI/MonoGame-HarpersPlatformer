@@ -34,13 +34,10 @@ namespace HarpersPlatformer.Rooms
                 Engine.SpawnInstance(ground);
             }
 
-            var treeSprite = new Sprite(new Region(Engine.Game.Content.Load<Texture2D>("textures/tree_1")))
-            {
-                Scale = new Vector2(0.6f)
-            };
+            var treeSprite = new Sprite(new Region(Engine.Game.Content.Load<Texture2D>("textures/tree_1")));
             var tree = new BackgroundImage(treeSprite)
             {
-                Position = new Vector2(800, 10000 - 544 * treeSprite.Scale.Y - 25)
+                Position = new Vector2(800, 10000 - 336 - 30)
             };
             Engine.SpawnInstance(tree);
         }
