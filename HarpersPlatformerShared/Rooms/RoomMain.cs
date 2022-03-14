@@ -17,6 +17,7 @@ namespace HarpersPlatformer.Rooms
             Engine.SpawnInstance<Butterfly>();
             Engine.SpawnInstance<RespawnControl>();
             Engine.SpawnInstance<ControlReset>();
+            Engine.SpawnInstance<ControlFullscreen>();
 
             for (int i = 0; i < 10; i++)
             {

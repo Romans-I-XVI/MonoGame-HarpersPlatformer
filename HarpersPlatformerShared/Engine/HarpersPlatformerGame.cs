@@ -12,6 +12,7 @@ namespace MonoEngine
             Graphics.SynchronizeWithVerticalRetrace = false;
             Graphics.HardwareModeSwitch = false;
             Window.AllowAltF4 = true;
+            this.Graphics.IsFullScreen = true;
         }
 
         protected override void LoadContent()

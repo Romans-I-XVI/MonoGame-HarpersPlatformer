@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\HarpersPlatformerGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\BackgroundImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Butterfly.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ControlFullscreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvasEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Player.cs" />
