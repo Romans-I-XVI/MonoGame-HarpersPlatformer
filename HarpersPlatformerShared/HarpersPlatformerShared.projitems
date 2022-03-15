@@ -15,9 +15,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\ControlFullscreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvasEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\RespawnControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\TimedExecution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IEnemy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\RoomMain.cs" />
   </ItemGroup>
 </Project>

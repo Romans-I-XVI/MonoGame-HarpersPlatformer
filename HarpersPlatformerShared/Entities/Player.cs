@@ -1,4 +1,5 @@
 using System;
+using HarpersPlatformer.HarpersPlatformerShared.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -21,8 +22,10 @@ namespace HarpersPlatformer.Entities
         private VirtualButton _buttonMoveLeft;
         private VirtualButton _buttonJump;
 
+        private ColliderRectangle MainCollider;
+
         public Player() {
-            Position = new Vector2(Player.StartX, Player.StartY);
+            this.Position = new Vector2(Player.StartX, Player.StartY);
 
             // Add texture
             var texture = Engine.Game.Content.Load<Texture2D>("textures/player");
@@ -46,6 +49,7 @@ namespace HarpersPlatformer.Entities
             _buttonJump.AddButton(Buttons.A);
 
             AddColliderRectangle("main", -texture.Width / 2, -texture.Height, sprite.Region.GetWidth(), sprite.Region.GetHeight());
+            this.MainCollider = (ColliderRectangle)this.GetCollider("main");
         }
 
         public override void onUpdate(float deltaTime)
@@ -88,8 +92,30 @@ namespace HarpersPlatformer.Entities
         public override void onCollision(Collider collider, Collider otherCollider, Entity otherInstance)
         {
             base.onCollision(collider, otherCollider, otherInstance);
+
+            if (otherInstance is IEnemy) {
+                this.OnCollisionWithEnemy();
+            } else if (otherInstance is Platform) {
+                this.OnCollisionWithPlatform((Platform)otherInstance);
+            }
+        }
+
+        private void OnCollisionWithEnemy() {
             if (!this.Invincible) {
                 this.IsExpired = true;
+            }
+        }
+
+        private void OnCollisionWithPlatform(Platform platform) {
+            System.Diagnostics.Debug.WriteLine("OnCollisionWithPlatform");
+
+            const float collision_threshold = 20;
+            float feet_y = this.Position.Y + this.MainCollider.Offset.Y + this.MainCollider.Height;
+            float platform_y = platform.Position.Y;
+            if (this.Speed.Y > 0 && Math.Abs(feet_y - platform_y) < collision_threshold) {
+                this.Speed.Y = 0;
+                this.Position.Y = platform.Position.Y;
+                System.Diagnostics.Debug.WriteLine("SetPosition");
             }
         }
     }
