@@ -40,6 +40,8 @@ namespace HarpersPlatformer.Rooms
                 Position = new Vector2(800, 10000 - 336 - 30)
             };
             Engine.SpawnInstance(tree);
+
+            Engine.SpawnInstance(new Castle(1315, 8032));
         }
 
         public override void onSwitchAway(Room nextRoom)
