@@ -16,6 +16,7 @@ namespace HarpersPlatformer.Entities
         private const float JumpSpeed = -30f;
         private const float Gravity = 2.5f;
         private const float MaxFallSpeed = 15f;
+        private readonly Rectangle ColliderRectangle = new Rectangle(36, 1, 62, 158);
         public bool Invincible = false;
 
         private VirtualButton _buttonMoveRight;
@@ -48,7 +49,7 @@ namespace HarpersPlatformer.Entities
             _buttonJump.AddKey(Keys.Space);
             _buttonJump.AddButton(Buttons.A);
 
-            AddColliderRectangle("main", -texture.Width / 2, -texture.Height, sprite.Region.GetWidth(), sprite.Region.GetHeight());
+            AddColliderRectangle("main", -texture.Width / 2 + this.ColliderRectangle.X, -texture.Height + this.ColliderRectangle.Y, this.ColliderRectangle.Width, this.ColliderRectangle.Height);
             this.MainCollider = (ColliderRectangle)this.GetCollider("main");
         }
 
@@ -114,7 +115,7 @@ namespace HarpersPlatformer.Entities
             float platform_y = platform.Position.Y;
             if (this.Speed.Y > 0 && Math.Abs(feet_y - platform_y) < collision_threshold) {
                 this.Speed.Y = 0;
-                this.Position.Y = platform.Position.Y;
+                this.Position.Y = platform_y + (this.Position.Y - feet_y);
                 System.Diagnostics.Debug.WriteLine("SetPosition");
             }
         }
