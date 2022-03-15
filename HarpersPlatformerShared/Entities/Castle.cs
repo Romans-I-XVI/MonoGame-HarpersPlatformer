@@ -6,9 +6,9 @@ namespace HarpersPlatformer.Entities;
 
 public class Castle : BackgroundImage
 {
-	private const int PlatformOffsetX = 4;
+	private const int PlatformOffsetX = 12;
 	private const int PlatformOffsetY = 520;
-	private const int PlatformWidth = 678;
+	private const int PlatformWidth = 650;
 	private const int PlatformHeight = 94;
 	private readonly Platform Platform;
 
