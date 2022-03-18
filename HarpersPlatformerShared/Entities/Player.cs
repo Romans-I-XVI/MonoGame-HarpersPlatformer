@@ -17,6 +17,7 @@ namespace HarpersPlatformer.Entities
         private const float Gravity = 2.5f;
         private const float MaxFallSpeed = 15f;
         private readonly Rectangle ColliderRectangle = new Rectangle(36, 1, 62, 158);
+        public int Coins { get; private set; }
         public bool Invincible = false;
 
         private VirtualButton _buttonMoveRight;
@@ -98,6 +99,8 @@ namespace HarpersPlatformer.Entities
                 this.OnCollisionWithEnemy();
             } else if (otherInstance is Platform) {
                 this.OnCollisionWithPlatform((Platform)otherInstance);
+            } else if (otherInstance is ICoin) {
+                this.OnCollisionWithCoin((ICoin)otherInstance);
             }
         }
 
@@ -118,6 +121,11 @@ namespace HarpersPlatformer.Entities
                 this.Position.Y = platform_y + (this.Position.Y - feet_y);
                 System.Diagnostics.Debug.WriteLine("SetPosition");
             }
+        }
+
+        private void OnCollisionWithCoin(ICoin coin) {
+            this.Coins += coin.Value;
+            ((Entity)coin).IsExpired = true;
         }
     }
 }
