@@ -14,6 +14,7 @@ namespace HarpersPlatformer.Rooms
             var levelCanvas = new LevelCanvas(10000, 10000);
             Engine.SpawnInstance(levelCanvas);
             Engine.SpawnInstance<Player>();
+            Engine.SpawnInstance<PlayerUIDrawer>();
             Engine.SpawnInstance<Butterfly>();
             Engine.SpawnInstance<RespawnControl>();
             Engine.SpawnInstance<ControlReset>();

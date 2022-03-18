@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvasEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PlayerUIDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\RespawnControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\TimedExecution.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ICoin.cs" />
