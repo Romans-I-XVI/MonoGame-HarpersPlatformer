@@ -37,12 +37,16 @@ namespace HarpersPlatformer.Rooms
 
             Engine.SpawnInstance(new Castle(1315, 8032));
 
-
+            // Add trees
             Engine.SpawnInstance(new Tree(Trees.tree_short, 985, 9976));
             Engine.SpawnInstance(new Tree(Trees.tree_tall, 1282, 9924));
             Engine.SpawnInstance(new Tree(Trees.tree_short, 1527, 9969));
             Engine.SpawnInstance(new Tree(Trees.tree_short, 1842, 9935));
             Engine.SpawnInstance(new Tree(Trees.tree_tall, 2094, 9987));
+
+            // Add melons
+            Engine.SpawnInstance(new SuperMelon(1216, 9606));
+            Engine.SpawnInstance(new SuperMelon(1323, 9682));
         }
 
         public override void onSwitchAway(Room nextRoom)

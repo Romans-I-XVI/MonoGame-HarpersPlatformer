@@ -15,7 +15,7 @@ namespace HarpersPlatformer.Entities
             var sprite = new Sprite(new Region(texture));
             AddSprite("main", sprite);
 
-            _oscillatorX = new Oscillator(500, 500 + 800, 2500, Tween.SinusoidalTween);
+            _oscillatorX = new Oscillator(500, 500 + 600, 2400, Tween.SinusoidalTween);
             _oscillatorY = new Oscillator(10000 - 350, 10000 - 350 + 100, 500, Tween.SinusoidalTween);
             Position = new Vector2(500, 400 + 8920);
 
