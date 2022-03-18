@@ -47,6 +47,25 @@ namespace HarpersPlatformer.Rooms
             // Add melons
             Engine.SpawnInstance(new SuperMelon(1216, 9606));
             Engine.SpawnInstance(new SuperMelon(1323, 9682));
+
+            // Add coins
+            Engine.SpawnInstance(new Coin(2088, 9639));
+            // -- Star Formation
+            Engine.SpawnInstance(new Coin(2746, 8370));
+            Engine.SpawnInstance(new Coin(2944, 8343));
+            Engine.SpawnInstance(new Coin(2800, 8445));
+            Engine.SpawnInstance(new Coin(2752, 8501));
+            Engine.SpawnInstance(new Coin(2739, 8230));
+            Engine.SpawnInstance(new Coin(2654, 8305));
+            Engine.SpawnInstance(new Coin(2844, 8295));
+            Engine.SpawnInstance(new Coin(2557, 8350));
+            Engine.SpawnInstance(new Coin(2742, 8311));
+            Engine.SpawnInstance(new Coin(2657, 8373));
+            Engine.SpawnInstance(new Coin(2690, 8451));
+            Engine.SpawnInstance(new Coin(2844, 8370));
+            // -- Castle Formation
+            Engine.SpawnInstance(new Coin(1534, 8305));
+            Engine.SpawnInstance(new Coin(1817, 8499));
         }
 
         public override void onSwitchAway(Room nextRoom)
