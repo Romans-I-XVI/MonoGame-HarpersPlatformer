@@ -18,6 +18,7 @@ namespace HarpersPlatformer.Entities
         private const float MaxFallSpeed = 15f;
         private readonly Rectangle ColliderRectangle = new Rectangle(36, 1, 62, 158);
         public int Coins { get; private set; }
+        public int Melons { get; private set; }
         public bool Invincible = false;
 
         private VirtualButton _buttonMoveRight;
@@ -101,6 +102,8 @@ namespace HarpersPlatformer.Entities
                 this.OnCollisionWithPlatform((Platform)otherInstance);
             } else if (otherInstance is ICoin) {
                 this.OnCollisionWithCoin((ICoin)otherInstance);
+            } else if (otherInstance is IMelon) {
+                this.OnCollisionWithMelon((IMelon)otherInstance);
             }
         }
 
@@ -126,6 +129,11 @@ namespace HarpersPlatformer.Entities
         private void OnCollisionWithCoin(ICoin coin) {
             this.Coins += coin.Value;
             ((Entity)coin).IsExpired = true;
+        }
+
+        private void OnCollisionWithMelon(IMelon melon) {
+            this.Melons += melon.Value;
+            ((Entity)melon).IsExpired = true;
         }
     }
 }

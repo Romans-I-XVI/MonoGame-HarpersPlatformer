@@ -9,6 +9,7 @@ public class PlayerUIDrawer : Entity
 	private Player Player = null;
 	private readonly SpriteFont Font = Engine.Game.Content.Load<SpriteFont>("fonts/DINPro");
 	private readonly Vector2 CoinPosition = new Vector2(75, 60);
+	private readonly Vector2 MelonPosition = new Vector2(75, 60 + 50);
 
 	public PlayerUIDrawer() {
 		this.Player = Engine.GetFirstInstanceByType<Player>();
@@ -26,5 +27,6 @@ public class PlayerUIDrawer : Entity
 		base.onDraw(sprite_batch);
 
 		sprite_batch.DrawString(this.Font, "Coins: " + this.Player.Coins.ToString(), this.CoinPosition, Color.Black);
+		sprite_batch.DrawString(this.Font, "Melons: " + this.Player.Melons.ToString(), this.MelonPosition, Color.Black);
 	}
 }
