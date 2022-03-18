@@ -35,7 +35,7 @@ namespace HarpersPlatformer.Rooms
                 Engine.SpawnInstance(ground);
             }
 
-            Engine.SpawnInstance(new Tree( Trees.tree_short, 800, 10000 - 30));
+            Engine.SpawnInstance(new Tree(Trees.tree_short, 800, 10000 - 30));
             Engine.SpawnInstance(new Castle(1315, 8032));
         }
 
