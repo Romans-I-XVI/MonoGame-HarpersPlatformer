@@ -20,6 +20,12 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/DINPro.spritefont
 
+#begin sounds/ding.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/ding.wav
+
 #begin textures/player.png
 /importer:TextureImporter
 /processor:TextureProcessor

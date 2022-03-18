@@ -1,5 +1,6 @@
 using HarpersPlatformer.HarpersPlatformerShared.Interfaces;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using MonoEngine;
 
@@ -8,6 +9,7 @@ namespace HarpersPlatformer.Entities;
 public class Coin : LevelCanvasEntity, ICoin
 {
 	public int Value { get; } = 1;
+	private readonly SoundEffect Ding = Engine.Game.Content.Load<SoundEffect>("sounds/ding");
 
 	public Coin(int x, int y) {
 		this.Position = new Vector2(x, y);
@@ -20,5 +22,10 @@ public class Coin : LevelCanvasEntity, ICoin
 		this.AddSprite("main", sprite);
 
 		this.AddColliderCircle("main", texture.Width / 2f, 0, 0);
+	}
+
+	public override void onDestroy() {
+		base.onDestroy();
+		this.Ding.Play(1, 0, 0);
 	}
 }
