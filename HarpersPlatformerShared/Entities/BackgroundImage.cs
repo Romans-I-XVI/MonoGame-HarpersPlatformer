@@ -5,9 +5,11 @@ namespace HarpersPlatformer.Entities
 {
     public class BackgroundImage : LevelCanvasEntity
     {
+        public const int DefaultDepth = 1000;
+
         public BackgroundImage(Sprite sprite)
         {
-            Depth = 1000;
+            Depth = BackgroundImage.DefaultDepth;
             AddSprite("main", sprite);
         }
 
