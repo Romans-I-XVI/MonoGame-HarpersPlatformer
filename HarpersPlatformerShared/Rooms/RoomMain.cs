@@ -35,8 +35,14 @@ namespace HarpersPlatformer.Rooms
                 Engine.SpawnInstance(ground);
             }
 
-            Engine.SpawnInstance(new Tree(Trees.tree_short, 800, 10000 - 30));
             Engine.SpawnInstance(new Castle(1315, 8032));
+
+
+            Engine.SpawnInstance(new Tree(Trees.tree_short, 985, 9976));
+            Engine.SpawnInstance(new Tree(Trees.tree_tall, 1282, 9924));
+            Engine.SpawnInstance(new Tree(Trees.tree_short, 1527, 9969));
+            Engine.SpawnInstance(new Tree(Trees.tree_short, 1842, 9935));
+            Engine.SpawnInstance(new Tree(Trees.tree_tall, 2094, 9987));
         }
 
         public override void onSwitchAway(Room nextRoom)
