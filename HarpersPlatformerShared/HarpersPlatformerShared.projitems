@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Castle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Coin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\ControlFullscreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Dragon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\LevelCanvasEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Platform.cs" />

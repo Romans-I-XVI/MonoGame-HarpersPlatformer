@@ -66,6 +66,10 @@ namespace HarpersPlatformer.Rooms
             // -- Castle Formation
             Engine.SpawnInstance(new Coin(1534, 8305));
             Engine.SpawnInstance(new Coin(1817, 8499));
+
+            // Add dragons
+            // Engine.SpawnInstance(new Dragon(Dragon.AvailableDragons.fire_dragon, new Vector2(1181, 7948), new Vector2(2080, 7948), 5000, Tween.SinusoidalTween));
+            // Engine.SpawnInstance(new Dragon(Dragon.AvailableDragons.spike_dragon, new Vector2(2211, 7386), new Vector2(940, 7386), 5000, Tween.SinusoidalTween));
         }
 
         public override void onSwitchAway(Room nextRoom)
